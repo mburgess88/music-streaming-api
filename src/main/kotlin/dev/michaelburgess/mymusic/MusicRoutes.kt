@@ -8,17 +8,17 @@ import org.springframework.web.reactive.function.server.*
 @Configuration
 open class MusicRoutes {
     @Bean
-    open fun videoEndPoint(videoRouteHandler: MusicRouteHandler): RouterFunction<ServerResponse> {
+    open fun musicEndPoint(musicRouteHandler: MusicRouteHandler): RouterFunction<ServerResponse> {
         return RouterFunctions.route().nest(RequestPredicates.path("/music"), { builder: RouterFunctions.Builder ->
             builder
-                    .GET("") { videoRouteHandler.getAllMusic() }
-                    .POST("") { request: ServerRequest -> videoRouteHandler.addMusic(request) }
-                    .nest(RequestPredicates.path("/{id}"), { videoBuilder: RouterFunctions.Builder ->
-                        videoBuilder
-                                .GET("") { request: ServerRequest -> videoRouteHandler.getMusicDetails(request.pathVariable("id")) }
-                                .nest(RequestPredicates.path("/stream"), { videoBuilder: RouterFunctions.Builder ->
-                                    videoBuilder
-                                            .GET("") { request: ServerRequest -> videoRouteHandler.getMusicFile(request) }
+                    .GET("") { musicRouteHandler.getAllMusic() }
+                    .POST("") { request: ServerRequest -> musicRouteHandler.addMusic(request) }
+                    .nest(RequestPredicates.path("/{id}"), { builder: RouterFunctions.Builder ->
+                        builder
+                                .GET("") { request: ServerRequest -> musicRouteHandler.getMusicDetails(request.pathVariable("id")) }
+                                .nest(RequestPredicates.path("/stream"), { builder: RouterFunctions.Builder ->
+                                    builder
+                                            .GET("") { request: ServerRequest -> musicRouteHandler.getMusicFile(request) }
                                 }
                                 )
                     }

@@ -35,8 +35,8 @@ class MusicService(private val musicRepository: MusicRepository) {
 
     private fun createUriResource(musicDetails: MusicDetails): Mono<UrlResource> {
         return Mono.create { monoSink: MonoSink<UrlResource> ->
-            val video = UrlResource("file://Users/michaelburgess/Personal/mymusic/" + musicDetails.filename)
-            monoSink.success(video)
+            val file = UrlResource("file://Users/michaelburgess/Personal/mymusic/" + musicDetails.filename)
+            monoSink.success(file)
         }
     }
 
