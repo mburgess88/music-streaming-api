@@ -1,5 +1,6 @@
-package dev.michaelburgess.mymusic
+package dev.michaelburgess.mymusic.config
 
+import dev.michaelburgess.mymusic.ResourceRegionMessageWriter
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.codec.ServerCodecConfigurer
 import org.springframework.web.reactive.config.EnableWebFlux

@@ -11,6 +11,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest
 import org.springframework.http.server.reactive.ServerHttpResponse
 import reactor.core.publisher.Mono
 import java.util.*
+import kotlin.math.min
 
 class ResourceRegionMessageWriter : HttpMessageWriter<ResourceRegion> {
 
@@ -44,7 +45,7 @@ class ResourceRegionMessageWriter : HttpMessageWriter<ResourceRegion> {
 
             val contentLength = resourceRegion.resource.contentLength()
             val start = resourceRegion.position
-            val end = Math.min(start + resourceRegion.count - 1, contentLength - 1)
+            val end = min(start + resourceRegion.count - 1, contentLength - 1)
             headers.add("Content-Range", "bytes $start-$end/$contentLength")
             headers.contentLength = end - start + 1
 

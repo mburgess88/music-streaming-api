@@ -8,7 +8,7 @@ import java.util.*
 @DynamoDbBean
 data class MusicDetails(
         @get:DynamoDbPartitionKey
-        var id: String? = UUID.randomUUID().toString(),
+        val id: String = UUID.randomUUID().toString(),
         var name: String? = null,
         var mixedBy: String? = null,
         var dateUploaded: Instant? = Instant.now(),

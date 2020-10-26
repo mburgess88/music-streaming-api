@@ -1,4 +1,4 @@
-package dev.michaelburgess.mymusic
+package dev.michaelburgess.mymusic.routes
 
 import dev.michaelburgess.mymusic.handler.MusicRouteHandler
 import org.springframework.context.annotation.Bean
