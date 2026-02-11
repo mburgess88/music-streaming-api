@@ -1,0 +1,70 @@
+{
+ "Resources": {
+  "MusicCertificateB49AF10B": {
+   "Type": "AWS::CertificateManager::Certificate",
+   "Properties": {
+    "DomainName": "mixes.michaelburgess.dev",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MusicCertificateStack/MusicCertificate"
+     }
+    ],
+    "ValidationMethod": "DNS"
+   },
+   "Metadata": {
+    "aws:cdk:path": "MusicCertificateStack/MusicCertificate/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02IOw6DMAxAz8KeuAlVT8DWBQkOgFzXVC4QUOKUAXH3CjG00/uU4G8OXIFrsvQc7CgP2FpFGgyuqSOOKr0QKk8Y8MURtur3TNWHv9yPrrMuWQ9rOM05Eu/mjh+8eA8O/LV4JxEbc1CZGJqTX0/Wwk6HAAAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "MusicCertificateStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "CertificateArn": {
+   "Value": {
+    "Ref": "MusicCertificateB49AF10B"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

@@ -2,18 +2,21 @@ package dev.michaelburgess.mymusic.service
 
 import dev.michaelburgess.mymusic.domain.MusicDetails
 import dev.michaelburgess.mymusic.repository.MusicRepository
-import org.springframework.core.io.UrlResource
+import org.springframework.core.io.Resource
 import org.springframework.core.io.support.ResourceRegion
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.server.ServerRequest
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import reactor.core.publisher.MonoSink
-import java.lang.Long.min
+import kotlin.math.min
 import java.util.concurrent.atomic.AtomicInteger
 
 @Service
-class MusicService(private val musicRepository: MusicRepository) {
+class MusicService(
+    private val musicRepository: MusicRepository,
+    private val storageProvider: MusicStorageProvider
+) {
 
     fun findById(id: String) : Mono<MusicDetails> {
         return musicRepository.get(id)
@@ -27,17 +30,14 @@ class MusicService(private val musicRepository: MusicRepository) {
         return musicRepository.getAll()
     }
 
-    private fun getFile(id: String) : Mono<UrlResource> {
-
-        return findById(id)
-                .flatMap { musicDetails: MusicDetails -> createUriResource(musicDetails)}
+    fun listMusicByCategory(categoryId: String) : Flux<MusicDetails> {
+        return musicRepository.getByCategory(categoryId)
     }
 
-    private fun createUriResource(musicDetails: MusicDetails): Mono<UrlResource> {
-        return Mono.create { monoSink: MonoSink<UrlResource> ->
-            val file = UrlResource("file://Users/michaelburgess/Personal/mymusic/" + musicDetails.filename)
-            monoSink.success(file)
-        }
+    private fun getFile(id: String) : Mono<Resource> {
+
+        return findById(id)
+                .flatMap { musicDetails: MusicDetails -> storageProvider.getMusicResource(musicDetails.filename!!) }
     }
 
     fun getRegion(id: String, request: ServerRequest): Mono<ResourceRegion> {
@@ -45,18 +45,18 @@ class MusicService(private val musicRepository: MusicRepository) {
         val range = if (headers.range.isNotEmpty()) headers.range[0] else null
         val sizeInt = AtomicInteger(5)
         val chunkSize: Long = getChunkSize(sizeInt.get())
-        val resource: Mono<UrlResource> = getFile(id)
-        return resource.map { urlResource: UrlResource ->
-            val contentLength: Long = urlResource.contentLength()
+        val resourceMono: Mono<Resource> = getFile(id)
+        return resourceMono.map { resource: Resource ->
+            val contentLength: Long = resource.contentLength()
             if (range != null) {
                 val start = range.getRangeStart(contentLength)
                 val end = range.getRangeEnd(contentLength)
                 val resourceLength = end - start + 1
                 val rangeLength: Long = min(chunkSize, resourceLength)
-                ResourceRegion(urlResource, start, rangeLength)
+                ResourceRegion(resource, start, rangeLength)
             } else {
                 val rangeLength: Long = min(chunkSize,contentLength)
-                ResourceRegion(urlResource, 0, rangeLength)
+                ResourceRegion(resource, 0, rangeLength)
             }
         }
     }

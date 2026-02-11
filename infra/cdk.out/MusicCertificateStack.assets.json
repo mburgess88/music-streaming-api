@@ -1,0 +1,20 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "b2f227ab721a8de7634b3115fc2f84f14b273b2c05a1db0069af0e77365b241c": {
+      "source": {
+        "path": "MusicCertificateStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "549578882417-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-549578882417-us-east-1",
+          "objectKey": "b2f227ab721a8de7634b3115fc2f84f14b273b2c05a1db0069af0e77365b241c.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::549578882417:role/cdk-hnb659fds-file-publishing-role-549578882417-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,0 +1,67 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36mdev.michaelburgess:mymusic[0;1m >---------------------[m
+[[1;34mINFO[m] [1mBuilding My Music 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mspring-boot-maven-plugin:2.3.4.RELEASE:run[m [1m(default-cli)[0;1m > [0;1mtest-compile[m @ [36mmymusic[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:resources[m [1m(default-resources)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 2 resources
+[[1;34mINFO[m] Copying 0 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mkotlin-maven-plugin:1.4.10:compile[m [1m(compile)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(compile)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:testResources[m [1m(default-testResources)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /Users/michaelburgess/IdeaProjects/music-streaming-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /Users/michaelburgess/IdeaProjects/music-streaming-api/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mkotlin-maven-plugin:1.4.10:test-compile[m [1m(test-compile)[m @ [36mmymusic[0;1m ---[m
+[[1;33mWARNING[m] No sources found skipping Kotlin compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(testCompile)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /Users/michaelburgess/IdeaProjects/music-streaming-api/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mspring-boot-maven-plugin:2.3.4.RELEASE:run[m [1m(default-cli)[0;1m < [0;1mtest-compile[m @ [36mmymusic[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot-maven-plugin:2.3.4.RELEASE:run[m [1m(default-cli)[m @ [36mmymusic[0;1m ---[m
+[[1;34mINFO[m] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.4.RELEASE)
+
+2026-01-31 13:46:41.470  INFO 5045 --- [           main] d.m.mymusic.MyMusicApplicationKt         : Starting MyMusicApplicationKt on Michaels-MacBook-Air.local with PID 5045 (/Users/michaelburgess/IdeaProjects/music-streaming-api/target/classes started by michaelburgess in /Users/michaelburgess/IdeaProjects/music-streaming-api)
+2026-01-31 13:46:41.471  INFO 5045 --- [           main] d.m.mymusic.MyMusicApplicationKt         : The following profiles are active: local
+2026-01-31 13:46:42.043  INFO 5045 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 8080
+2026-01-31 13:46:42.047  INFO 5045 --- [           main] d.m.mymusic.MyMusicApplicationKt         : Started MyMusicApplicationKt in 0.736 seconds (JVM running for 0.887)
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  5 d 10:19 h
+[[1;34mINFO[m] Finished at: 2026-02-06T00:05:44Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.springframework.boot:spring-boot-maven-plugin:2.3.4.RELEASE:run[m [1m(default-cli)[m on project [36mmymusic[m: [1;31mApplication finished with exit code: 143[m -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
