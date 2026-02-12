@@ -1,0 +1,13 @@
+target/
+!.jar
+.git/
+node_modules/
+infra/
+build/
+Dockerfile
+deploy-aws.sh
+scripts/
+volume/
+spring-boot.log
+*.md
+.DS_Store

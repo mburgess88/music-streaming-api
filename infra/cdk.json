@@ -1,0 +1,53 @@
+{
+  "app": "../mvnw -f pom.xml -q -e compile exec:java",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk.context.json",
+      "build",
+      ".gradle",
+      "src/test"
+    ]
+  },
+  "context": {
+    "@aws-cdk/core:stackTrace": true,
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:checkSecretUsage": true,
+    "@aws-cdk/core:stackRelativeExports": true,
+    "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
+    "@aws-cdk/aws-iam:minimizePolicies": true,
+    "@aws-cdk/core:validateSnapshotRemovalPolicy": true,
+    "@aws-cdk/aws-codepipeline:crossAccountKeyAliasStackSafeResourceName": true,
+    "@aws-cdk/aws-s3:createDefaultLoggingPolicy": true,
+    "@aws-cdk/aws-sns-subscriptions:restrictSqsDescryption": true,
+    "@aws-cdk/aws-apigateway:disableCloudWatchRole": true,
+    "@aws-cdk/core:enablePartitionLiterals": true,
+    "@aws-cdk/aws-events:eventsTargetQueueSameAccount": true,
+    "@aws-cdk/aws-iam:standardizedServicePrincipals": true,
+    "@aws-cdk/aws-ecs:disableStrictLivenessCheck": true,
+    "@aws-cdk/aws-codepipeline-actions:useNewRunOrderDefault": true,
+    "@aws-cdk/aws-s3:notificationsResourceDefaultInstancesRole": true,
+    "@aws-cdk/aws-secretsmanager:useAttachedSecretResourcePolicyLimit": true,
+    "@aws-cdk/aws-redshift:columnId": true,
+    "@aws-cdk/aws-stepfunctions-tasks:enableStsReplacement": true,
+    "@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy": true,
+    "@aws-cdk/aws-ec2:launchTemplateDefaultUserData": true,
+    "@aws-cdk/aws-efs:mountTargetOrder": true,
+    "@aws-cdk/aws-kms:aliasNameRef": true,
+    "@aws-cdk/aws-appsync:useNodeJsLambdaRuntime": true,
+    "@aws-cdk/aws-rds:auroraClusterChangeScope": true,
+    "@aws-cdk/aws-iam:importedRoleStackSafeDefaultPolicyName": true,
+    "@aws-cdk/aws-s3:transitionDefaultMinimumObjectSize": true,
+    "@aws-cdk/aws-elbv2:albDualstackDefault": true,
+    "@aws-cdk/aws-kms:reduceResourcePolicySize": true,
+    "@aws-cdk/aws-ec2:ebsDefaultGp3": true,
+    "@aws-cdk/aws-ecs:managedTaskPriority": true,
+    "@aws-cdk/aws-ecr-assets:dockerIgnoreSupport": true,
+    "@aws-cdk/aws-ecs-patterns:removeDefaultPortMappingFromFargateServiceL2": true,
+    "@aws-cdk/aws-rds:databaseProxyDefaultSessionPinning": true,
+    "@aws-cdk/aws-lambda:recognizeVersionProps": true
+  }
+}

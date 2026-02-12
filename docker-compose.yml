@@ -1,20 +1,18 @@
-version: '3.2'
-
 services:
   localstack:
-    image: localstack/localstack
-    container_name: localstack-local-personal
+    image: localstack/localstack:latest
+    container_name: localstack-local
     ports:
-      - "4567-4597:4567-4597"
-      - "${PORT_WEB_UI-8044}:${PORT_WEB_UI-8080}"
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
     environment:
       - SERVICES=s3,dynamodb
       - DEBUG=${DEBUG- }
-      - DATA_DIR=${DATA_DIR- }
-      - PORT_WEB_UI=${PORT_WEB_UI- }
-      - DOCKER_HOST=unix:///var/run/docker.sock
     volumes:
-      - '/Users/michaelburgess/Documents/localstack:/tmp/localstack'
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "./scripts:/etc/localstack/init/ready.d"
+      - "../music-streaming-ui:/tmp/ui-source"
+      - "/Users/michaelburgess/Personal/mymusic:/tmp/music-source"
     networks:
       - service_net
   DynamoDbGui:
